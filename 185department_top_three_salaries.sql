@@ -8,7 +8,7 @@ FROM
 WHERE
     e.DepartmentId = d.Id
 AND (SELECT COUNT(DISTINCT e2.Salary) FROM Employee e2 WHERE e2.Salary > e.Salary AND e2.DepartmentId = e.DepartmentId) < 3
-
+/* A top 3 salary in this company means there is no more than 3 salary bigger than itself in the company.*/
 /*
 SELECT D.Name AS Department, E.Name AS Employee, E.Salary AS Salary
 FROM Employee E INNER JOIN Department D ON E.DepartmentId = D.Id
